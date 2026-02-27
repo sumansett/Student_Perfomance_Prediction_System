@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Performance Prediction System</h2>
+
+        <form action="/predict" method="POST">
+
+            <!-- 1 -->
+            <div class="form-group">
+                <label>Hours Studied (Hours per week)</label>
+                <input type="number" name="Hours_Studied" placeholder="Enter study hours per week" required>
+            </div>
+
+            <!-- 2 -->
+            <div class="form-group">
+                <label>Attendance (%)</label>
+                <input type="number" name="Attendance" placeholder="Enter attendance percentage" required>
+            </div>
+
+            <!-- 3 -->
+            <div class="form-group">
+                <label>Parental Involvement</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Parental_Involvement" value="Low" required> Low</label>
+                    <label><input type="radio" name="Parental_Involvement" value="Medium"> Medium</label>
+                    <label><input type="radio" name="Parental_Involvement" value="High"> High</label>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="form-group">
+                <label>Access to Resources</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Access_to_Resources" value="Low" required> Low</label>
+                    <label><input type="radio" name="Access_to_Resources" value="Medium"> Medium</label>
+                    <label><input type="radio" name="Access_to_Resources" value="High"> High</label>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="form-group">
+                <label>Extracurricular Activities</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Extracurricular_Activities" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="Extracurricular_Activities" value="No"> No</label>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="form-group">
+                <label>Sleep Hours (Per night)</label>
+                <input type="number" name="Sleep_Hours" placeholder="Enter average sleep hours" required>
+            </div>
+
+            <!-- 7 -->
+            <div class="form-group">
+                <label>Previous Scores (Out of 100)</label>
+                <input type="number" name="Previous_Scores" placeholder="Enter previous exam scores" required>
+            </div>
+
+            <!-- 8 -->
+            <div class="form-group">
+                <label>Motivation Level</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Motivation_Level" value="Low" required> Low</label>
+                    <label><input type="radio" name="Motivation_Level" value="Medium"> Medium</label>
+                    <label><input type="radio" name="Motivation_Level" value="High"> High</label>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="form-group">
+                <label>Internet Access</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Internet_Access" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="Internet_Access" value="No"> No</label>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="form-group">
+                <label>Tutoring Sessions (Per month)</label>
+                <input type="number" name="Tutoring_Sessions" placeholder="Enter tutoring sessions per month" required>
+            </div>
+
+            <!-- 11 -->
+            <div class="form-group">
+                <label>Family Income</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Family_Income" value="Low" required> Low</label>
+                    <label><input type="radio" name="Family_Income" value="Medium"> Medium</label>
+                    <label><input type="radio" name="Family_Income" value="High"> High</label>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="form-group">
+                <label>Teacher Quality</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Teacher_Quality" value="Low" required> Low</label>
+                    <label><input type="radio" name="Teacher_Quality" value="Medium"> Medium</label>
+                    <label><input type="radio" name="Teacher_Quality" value="High"> High</label>
+                </div>
+            </div>
+
+            <!-- 13 -->
+            <div class="form-group">
+                <label>School Type</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="School_Type" value="Public" required> Public</label>
+                    <label><input type="radio" name="School_Type" value="Private"> Private</label>
+                </div>
+            </div>
+
+            <!-- 14 -->
+            <div class="form-group">
+                <label>Peer Influence</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Peer_Influence" value="Positive" required> Positive</label>
+                    <label><input type="radio" name="Peer_Influence" value="Neutral"> Neutral</label>
+                    <label><input type="radio" name="Peer_Influence" value="Negative"> Negative</label>
+                </div>
+            </div>
+
+            <!-- 15 -->
+            <div class="form-group">
+                <label>Physical Activity (Hours per week)</label>
+                <input type="number" name="Physical_Activity" placeholder="Enter physical activity hours" required>
+            </div>
+
+            <!-- 16 -->
+            <div class="form-group">
+                <label>Learning Disabilities</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Learning_Disabilities" value="Yes" required> Yes</label>
+                    <label><input type="radio" name="Learning_Disabilities" value="No"> No</label>
+                </div>
+            </div>
+
+            <!-- 17 -->
+            <div class="form-group">
+                <label>Parental Education Level</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Parental_Education_Level" value="High School" required> High
+                        School</label>
+                    <label><input type="radio" name="Parental_Education_Level" value="College"> College</label>
+                    <label><input type="radio" name="Parental_Education_Level" value="Postgraduate">
+                        Postgraduate</label>
+                </div>
+            </div>
+
+            <!-- 18 -->
+            <div class="form-group">
+                <label>Distance from Home</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Distance_from_Home" value="Near" required> Near</label>
+                    <label><input type="radio" name="Distance_from_Home" value="Moderate"> Moderate</label>
+                    <label><input type="radio" name="Distance_from_Home" value="Far"> Far</label>
+                </div>
+            </div>
+
+            <!-- 19 -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="Gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="Gender" value="Female"> Female</label>
+                </div>
+            </div>
+
+            <button type="submit">Predict Exam Score</button>
+
+        </form>
+        <div class="result">
+            {% if prediction_text %}
+            {{ prediction_text }}
+            {% else %}
+            Predicted Exam Score will appear here
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>
